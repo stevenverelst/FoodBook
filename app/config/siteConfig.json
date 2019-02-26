@@ -1,0 +1,15 @@
+{
+    "config":{
+        "debugMode": 1,
+        "trace": 1,
+        "dbHost": "localhost",
+        "dbName": "foodbook",
+        "dbPort": "3306",
+        "dbUser": "webuser1",
+        "dbPassword": "Wlf4ever$1",
+        "#dbUser": "root",
+        "#dbPassword": "",
+        "URLRoot": "http://localhost/PHP-MVC-template/",
+        "siteName": "MVC-Template"
+    }
+}

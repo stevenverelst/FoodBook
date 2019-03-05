@@ -13,21 +13,35 @@ class Page extends Controller{
     }
 
     public function index(){
-        $recept = $this->_receptModel->getRecept();
+        //$recept = $this->_receptModel->getRecept();
 
         // Set array with data
 
         $data = [
-            'title' => 'Welcome'
+            'title' => 'Welcome to FoodBook',
+            'description' =>  'This is the description of Foodbook'
         ];
 
-        $this->view(Util::getClassName($this),'index', $data);
+        $this->view(Util::getClassName($this),'Index', $data);
 
         
     }
 
     public function about(){
-        $this->view(Util::getClassName($this), 'about');
+     
+       //$recept = $this->_receptModel->getRecept();
+
+        // Set array with data
+        
+        $data = [
+            'title' => 'About',
+            'description' => 'Foodbook created by Steven Verelst',
+            'version' => Util::getversion()
+        ];
+
+        $this->view(Util::getClassName($this),'About',  $data);
+
+        
     }
 
 }

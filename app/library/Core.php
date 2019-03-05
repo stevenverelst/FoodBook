@@ -30,6 +30,7 @@ namespace app\library;
             // checks on method and set method
             if (isset($url[1])){
                 // CHeck if method exists in controller
+                Util::debugPrint_r('Current method:'.$url[1]);
                 if (method_exists($this->_currentController, $url[1])){
                     $this->_currentMethod =$url[1];
                 }

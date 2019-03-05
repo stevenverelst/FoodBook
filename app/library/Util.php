@@ -47,11 +47,22 @@ abstract class Util{
         }
     }
 
-    public static function getClassName($object):string{
+    public static function getClassName(object $object):string{
         $object=get_class($object);
-        if ($pos = strrpos($object, '\\')) return substr($object, $pos + 1);
-        return $pos;
+        if ($pos = strrpos($object, '\\')){
+            return substr($object, $pos + 1);
+        }else{
+            return $pos;
+        }
     }
+    public static function getClassNameByName(string $class):string{
+        
+        if ($pos = strrpos($class, '\\')){
+            return substr($class, $pos + 1);
+        }else{
+            return $pos;
+        }
+       }
 
     public static function getAppRoot():string{
         return dirname(dirname(__FILE__));
@@ -84,6 +95,11 @@ abstract class Util{
     public static function getDbPassword() : string
     {
         return Config::instance()->get('dbPassword');
+    }
+
+    public static function getversion(): string
+    {
+        return Config::instance()->get('version');
     }
    
 }

@@ -12,6 +12,7 @@
 
         public function getRecept(){
             $this->_db->query("SELECT * FROM Recept");
+            //$this->_db->
 
             return $this->_db->resultSet();
         }

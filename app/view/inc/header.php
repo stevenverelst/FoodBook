@@ -11,7 +11,7 @@
         <?php echo Util::getSiteName(); ?>
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="<?php Util::getUrlRoot(); ?>main.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="<?php Util::getUrlRoot(); ?>/css/style.css">
 </head>
 
 <body>

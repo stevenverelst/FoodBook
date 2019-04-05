@@ -41,7 +41,7 @@ namespace app\library;
             //check on parameters
             $this->_params = $url?array_values($url):[];
             
-            // Call a callback with aaray of params
+            // Call a callback with array of params
             call_user_func_array([$this->_currentController,$this->_currentMethod],$this->_params);
 
         }

@@ -6,7 +6,7 @@ namespace app;
     use app\config\Config;
     
     
-
+    Util::trace("new core initialized in Bootstrap.");
     $core=new Core();
   
 ?>

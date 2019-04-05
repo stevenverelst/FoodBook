@@ -21,6 +21,10 @@ class ComposerStaticInit1caf587fe390a0f586cffa8fed3e8294
     );
 
     public static $classMap = array (
+        'app\\business\\LogicError' => __DIR__ . '/../..' . '/app/business/LogicError.php',
+        'app\\business\\ObjectErrors' => __DIR__ . '/../..' . '/app/business/ObjectErrors.php',
+        'app\\business\\Page' => __DIR__ . '/../..' . '/app/business/Page.php',
+        'app\\business\\User' => __DIR__ . '/../..' . '/app/business/User.php',
         'app\\business\\iBusinessObject' => __DIR__ . '/../..' . '/app/business/iBusinessObject.php',
         'app\\config\\Config' => __DIR__ . '/../..' . '/app/config/Config.php',
         'app\\controllers\\Page' => __DIR__ . '/../..' . '/app/controllers/Page.php',

@@ -6,6 +6,10 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'app\\business\\LogicError' => $baseDir . '/app/business/LogicError.php',
+    'app\\business\\ObjectErrors' => $baseDir . '/app/business/ObjectErrors.php',
+    'app\\business\\Page' => $baseDir . '/app/business/Page.php',
+    'app\\business\\User' => $baseDir . '/app/business/User.php',
     'app\\business\\iBusinessObject' => $baseDir . '/app/business/iBusinessObject.php',
     'app\\config\\Config' => $baseDir . '/app/config/Config.php',
     'app\\controllers\\Page' => $baseDir . '/app/controllers/Page.php',

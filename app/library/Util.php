@@ -37,14 +37,61 @@ abstract class Util{
     // public functions
     public static function debugPrint_r(string $message):void{
         
-        if (Config::instance()->get("debugMode")){
+        if (Config::instance()->get("debugMode") && !Config::instance()->get("isProd")){
             print_r($message.'<BR>');
         }
     }
     public static function debugDump($object) : void{
-        if (Config::instance()->get("debugMode")) {
+        if (Config::instance()->get("debugMode") && !Config::instance()->get("isProd")) {
             var_dump($object);
         }
+    }
+    public static function trace(string $message): void
+    {
+        if (Config::instance()->get("trace") && !Config::instance()->get("isProd")) {
+            $date = date('Ymd His');
+            echo '<script> console.log("'.$date.'>>\t'. $message .'");</script>';
+        }
+    }
+    /*public static function traceObject($object): void{
+        if (Config::instance()->get("trace") && !Config::instance()->get("isProd")) {
+            $date = date('Ymd His');
+            //echo '<script> console.log("' . $date . '>>\t' . var_dump(get_object_vars($object)) . '");</script>';
+            echo "<script> console.log('" . $date . ">>\t" . implode(get_object_vars($object)). "');</script>";
+        }
+    }*/
+
+    public static function object2Array($object):array{
+        self::trace("Util::function object2array(object)");
+        self::debugPrint_r("Object2Array");
+        
+        $subArr = array();
+        $arr = array();
+        //$arr=array();
+        if (is_object($object)){
+            self::trace("is object");
+            $arr = get_object_vars($object);
+        }else{
+            self::trace("is array");
+            $arr = $object;
+        }
+        self::trace("before foreach");
+        self::debugPrint_r( "before foreach");
+        self::debugDump($object);
+        self::debugDump($arr);
+        foreach ($arr as $key => $value) {
+            self::trace("get into foreach");
+            if( is_array($value) || is_object($value)){
+                self::trace("get into recurssion condition");
+                $value = self::object2Array( get_object_vars($value));
+            }else{
+            self::trace($key . ": " . $value);
+            $subArr[$key] = $value;
+            }
+            
+        }
+        self::trace( "End Util::function object2array(object)");
+        return $subArr;
     }
 
     public static function getClassName(object $object):string{
@@ -62,7 +109,7 @@ abstract class Util{
         }else{
             return $pos;
         }
-       }
+    }
 
     public static function getAppRoot():string{
         return dirname(dirname(__FILE__));
@@ -77,24 +124,35 @@ abstract class Util{
     }
 
     public static function getDbHost(): string{
-        return Config::instance()->get('dbHost');
+        return Config::instance()->get('PDO.dbHost');
     }
 
     public static function getDbName(): string{
-        return Config::instance()->get('dbName');
+        return Config::instance()->get('PDO.dbName');
     }
 
     public static function getDbPort(): string{
-       return Config::instance()->get('dbPort');
+       return Config::instance()->get('PDO.dbPort');
     }
 
     public static function getDbUser():string{
-        return Config::instance()->get('dbUser');
+        return Config::instance()->get('PDO.dbUser');
     }
     
-    public static function getDbPassword() : string
+    public
+    static function getDbPassword() : string
     {
-        return Config::instance()->get('dbPassword');
+        return Config::instance()->get('PDO.dbPassword');
+    }
+
+    public static function getPdoPersistent(): string
+    {
+        return Config::instance()->get('PDO.ATTR_PERSISTENT');
+    }
+
+    public static function getPdoErrMode(): string
+    {
+        return Config::instance()->get('PDO.ATTR_ERRMODE');
     }
 
     public static function getversion(): string

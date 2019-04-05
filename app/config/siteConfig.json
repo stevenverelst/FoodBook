@@ -1,17 +1,22 @@
 {
     "config":{
-        "debugMode": 0,
-        "trace": 0,
+        "debugMode": 1,
+        "trace": 1,
         "errorlevel":0,
-        "dbHost": "localhost",
-        "dbName": "foodbook",
-        "dbPort": "3306",
-        "dbUser": "webuser1",
-        "dbPassword": "Wlf4ever$1",
-        "#dbUser": "root",
-        "#dbPassword": "",
+        "isProd":0,
+
+        "PDO.dbHost": "localhost",
+        "PDO.dbName": "foodbook",
+        "PDO.dbPort": "3306",
+        "PDO.dbUser": "webuser1",
+        "PDO.dbPassword": "Wlf4ever$1",
+        "PDO.ATTR_PERSISTENT": "true",
+        "PDO.ATTR_ERRMODE": "PDO::ERRMODE_EXCEPTION",
+        "#PDO.dbUser": "root",
+        "#PDO.dbPassword": "",
         "URLRoot": "http://localhost/",
         "siteName": "FoodBook",
         "version": "0.0.2"
+       
     }
 }

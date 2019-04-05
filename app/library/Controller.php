@@ -1,6 +1,7 @@
 <?php
 namespace app\library;
 use app\view\View;
+use app\business\iBusinessObject;
 
 abstract Class Controller {
     //load model
@@ -15,16 +16,14 @@ abstract Class Controller {
     }
 
     //load view
-    protected function view(string $name,string $view, $data = [])
+    protected function view(string $name,string $view, iBusinessObject $data )
     {
-
         if(file_exists('../app/view/'. $name .'/'. ucwords($view).'.php')){
             $view = 'app\\view\\' .$name .'\\'. ucwords($view);
             Util::debugPrint_r('Controller: '.$name);
-            Util::debugPrint_r('View: '.$view);
-            Util::debugDump($data);
-            $view::load(lcfirst($name), ucwords(Util::getClassNameByName($view)), $data);
-            //$view::load($data);
+            Util::debugPrint_r('View hallo: '.$view);
+            Util::debugDump($data->getJSON());
+            $view::load(lcfirst($name), ucwords(Util::getClassNameByName($view)), $data->getJSON());
         }else{
             // View does not exist
             die('View does not exist');

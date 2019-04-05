@@ -1,10 +1,10 @@
 <?php
 namespace app\business;
 
-interface iBusinessObject{
+interface iBusinessObject
+{
+  
+    public function getJSON(): string;
 
-    public function loadData(array $data);
-
-    public function getData():array;
 }
-?>
+ 

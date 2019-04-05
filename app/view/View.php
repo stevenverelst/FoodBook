@@ -8,11 +8,14 @@ abstract class View
     protected static $_controller;
     protected static $_view;
 
-    public static function load(string $controller, string $view, $data = [])
+    public static function load(string $controller, string $view, string $data)
     {
+        Util::debugPrint_r('View:load');
+        Util::debugDump($data);
+        var_dump($data['_address']);
         self::$_controller = $controller;
         self::$_view=$view; 
-        self::$_data = $data;
+        self::$_data = json_decode($data, true);
         self::build();
     }
 
@@ -45,6 +48,12 @@ abstract class View
     public static function getData(string $param)
     {
         echo (self::$_data[$param]);
+    }
+    public static function getSubData(string $param, string $subParam)
+    {
+        print_r ("Hallo");
+        
+        echo (self::$_data[$param][$subParam]);
     }
     public static function setData(string $param, string $value)
     {

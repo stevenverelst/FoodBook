@@ -22,8 +22,6 @@ class Page extends Controller{
         $this->_page->setDescription('This is the description of Foodbook');
         $this->_page->setVersion('1.0.0');
         $this->view(Util::getClassName($this),'Index', $this->_page);
-
-        
     }
 
     public function about(){

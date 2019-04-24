@@ -14,12 +14,12 @@ use app\library\Util;
                     </div>
                     <div class="form-group">
                         <label for="userId">UserId: <sup>*</sup></label>
-                        <input type="text" name="userId" id="userId" class="form-control form-control-sm" value="<?php echo Register::getData('_userId'); ?>">
+                        <input type="text" name="userId" id="userId" class="form-control form-control-sm" value="<?php echo Register::getData('userId'); ?>">
                         <span class="invalid-feedback" id="userIdErr"></span>
                     </div>
                     <div class="form-group">
                         <label for="password">Password: <sup>*</sup></label>
-                        <input type="password" name="password" id="password" class="form-control form-control-sm" value="<?php echo Register::getData('_password'); ?>">
+                        <input type="password" name="password" id="password" class="form-control form-control-sm" value="<?php echo Register::getData('password'); ?>">
                         <span class="invalid-feedback" id="passwordErr"></span>
                     </div>
                     <div class="row">

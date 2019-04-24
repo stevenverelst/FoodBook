@@ -1,7 +1,7 @@
 {
     "config":{
-        "debugMode": 1,
-        "trace": 1,
+        "debugMode": 0,
+        "trace": 0,
         "errorlevel":0,
         "isProd":0,
 
@@ -16,7 +16,13 @@
         "#PDO.dbPassword": "",
         "URLRoot": "http://localhost/",
         "siteName": "FoodBook",
-        "version": "0.0.2"
+        "version": "0.0.2",
+
+        "pwd.minlength": 8,
+        "pwd.special": 1,
+        "pwd.number": 1,
+        "pwd.ucase": 1,
+        "pwd.lcase": 1
        
     }
 }

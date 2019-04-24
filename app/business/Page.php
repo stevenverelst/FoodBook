@@ -38,6 +38,13 @@ class Page implements iBusinessObject{
     public function setVersion(string $version):void{
         $this->_version= $version;
     }
+    public function jsonSerialize(){
+        return[
+            'title' => $this->_title,
+            'description' => $this->_description,
+            'version' => $this->_version
+        ];
+    }
     public function getJSON():string {
         
         return json_encode(get_object_vars($this));

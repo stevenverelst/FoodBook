@@ -1,7 +1,7 @@
 <?php
 namespace app\business;
 
-class ObjectErrors
+class ObjectErrors implements iBusinessObject
 {
     private $_objErrs;
 
@@ -39,6 +39,10 @@ class ObjectErrors
             }
         }
         return $found;
+    }
+
+    public function jsonSerialize(){
+        
     }
 
 }

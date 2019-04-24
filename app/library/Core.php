@@ -24,9 +24,10 @@ namespace app\library;
             }
             // unset current index
             unset($url[0]);
-            // instantiate controller class
+        // instantiate controller class
+            
             $this->_currentController = new $this->_currentController();
-
+            Util::trace("Core->". Util::getClassName($this->_currentController));
             // checks on method and set method
             if (isset($url[1])){
                 // CHeck if method exists in controller
@@ -43,7 +44,7 @@ namespace app\library;
             
             // Call a callback with array of params
             call_user_func_array([$this->_currentController,$this->_currentMethod],$this->_params);
-
+            //call_user_method_array
         }
         public function getUrl(){
             if (isset($_GET['url'])){

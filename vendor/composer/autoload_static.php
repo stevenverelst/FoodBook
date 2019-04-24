@@ -21,6 +21,8 @@ class ComposerStaticInit1caf587fe390a0f586cffa8fed3e8294
     );
 
     public static $classMap = array (
+        'app\\business\\Address' => __DIR__ . '/../..' . '/app/business/Address.php',
+        'app\\business\\Country' => __DIR__ . '/../..' . '/app/business/Country.php',
         'app\\business\\LogicError' => __DIR__ . '/../..' . '/app/business/LogicError.php',
         'app\\business\\ObjectErrors' => __DIR__ . '/../..' . '/app/business/ObjectErrors.php',
         'app\\business\\Page' => __DIR__ . '/../..' . '/app/business/Page.php',
@@ -39,6 +41,7 @@ class ComposerStaticInit1caf587fe390a0f586cffa8fed3e8294
         'app\\view\\View' => __DIR__ . '/../..' . '/app/view/View.php',
         'app\\view\\page\\About' => __DIR__ . '/../..' . '/app/view/page/About.php',
         'app\\view\\page\\Index' => __DIR__ . '/../..' . '/app/view/page/Index.php',
+        'app\\view\\user\\Login' => __DIR__ . '/../..' . '/app/view/user/Login.php',
         'app\\view\\user\\Register' => __DIR__ . '/../..' . '/app/view/user/Register.php',
     );
 

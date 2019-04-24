@@ -12,10 +12,11 @@ abstract class View
     {
         Util::debugPrint_r('View:load');
         Util::debugDump($data);
-        var_dump($data['_address']);
+        
         self::$_controller = $controller;
         self::$_view=$view; 
         self::$_data = json_decode($data, true);
+        Util::debugDump(self::$_data);
         self::build();
     }
 
@@ -45,16 +46,31 @@ abstract class View
     {
         require Util::getAppRoot() . '/view/inc/footer.php';
     }
-    public static function getData(string $param)
+    public static function getData(string $key)
     {
-        echo (self::$_data[$param]);
+        Util::trace($key.": ". self::$_data[$key]);
+        echo (self::$_data[$key]);
     }
-    public static function getSubData(string $param, string $subParam)
+    public static function getSubData(array $keys)
     {
-        print_r ("Hallo");
-        
-        echo (self::$_data[$param][$subParam]);
+        //echo $list['address']->['street'];
+        $key = '';
+        $list = self::$_data;
+        Util::trace("View::function getSubData(array)");
+        Util::debugPrint_r('array is:');
+        Util::debugDump($keys);
+
+        for ($i = 0; $i < sizeof($keys); $i++) {
+            $key = $keys[$i];
+            Util::trace('key: ' . $keys[$i] . '->');
+            if ($i < sizeof($keys) - 1) {
+                $list = json_decode($list[$key], true);
+            }
+        }
+            echo ($list[$key]);
     }
+
+
     public static function setData(string $param, string $value)
     {
         self::$_data[$param] = $value;

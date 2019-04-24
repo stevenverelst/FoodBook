@@ -60,6 +60,18 @@ abstract class Util{
             echo "<script> console.log('" . $date . ">>\t" . implode(get_object_vars($object)). "');</script>";
         }
     }*/
+    public function checkPassword(string $password):bool{
+        $err = 0;
+        // check on password length
+        if(strlen($password) < Util::getPwdMinLength()){
+            $err++;
+        }
+        //if
+
+           // ( strpos($password,'')
+            //(substr_count($password,)
+        return true;
+    }
 
     public static function object2Array($object):array{
         self::trace("Util::function object2array(object)");
@@ -159,6 +171,26 @@ abstract class Util{
     {
         return Config::instance()->get('version');
     }
-   
+    public static function getPwdMinLength(): int
+    {
+        return Config::instance()->get( 'pwd.minlength');
+    }
+    public static function getPwdSpecial(): int
+    {
+        return Config::instance()->get( 'pwd.special');
+    }
+    public static function getPwdNumber(): int
+    {
+        return Config::instance()->get( 'pwd.number');
+    }
+    public static function getPwdUCase(): int
+    {
+        return Config::instance()->get( 'pwd.ucase');
+    }
+    public static function getPwdLCase(): int
+    {
+        return Config::instance()->get('pwd.lcase');
+    } 
+
 }
 ?>
